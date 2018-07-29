@@ -2,3 +2,12 @@
 # yarn lockfile v1
 
 
+tns-core-modules-widgets@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/tns-core-modules-widgets/-/tns-core-modules-widgets-4.1.0.tgz#bfb706fb5f246d2f44e7c652dbe4564fdf9c0261"
+
+tns-core-modules@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-4.1.1.tgz#df33f47d278de7e123a88ccbeea385131d548002"
+  dependencies:
+    tns-core-modules-widgets "4.1.0"

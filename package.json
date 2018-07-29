@@ -11,5 +11,8 @@
     "nativescript"
   ],
   "author": "Chase McCarthy",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "tns-core-modules": "^4.1.1"
+  }
 }
