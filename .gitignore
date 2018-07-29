@@ -1,3 +1,17 @@
+# IDE files
 .vscode
+
+# npm artifacts
 npm-debug.log
 node_modules
+
+# Ember CLI artifacts
+dist
+tmp
+
+# NativeScript files
+platforms/**/*
+
+# Build artifacts
+app/app.js
+app/app.css
