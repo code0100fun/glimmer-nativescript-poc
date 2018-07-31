@@ -1,0 +1,3 @@
+ember build
+cp dist/app.js app/
+cp dist/app.css app/

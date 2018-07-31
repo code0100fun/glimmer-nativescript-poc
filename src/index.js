@@ -1,9 +1,12 @@
 import 'regenerator-runtime/runtime';
-import App from './main';
+import App, { document } from './main';
 import { ComponentManager, setPropertyDidChange } from '@glimmer/component';
+import nativeApplication from 'tns-core-modules/application';
 
 const app = new App();
-const containerElement = document.getElementById('app');
+
+const container = document.createElement('Frame');
+document.documentElement.appendChild(container);
 
 setPropertyDidChange(() => {
   app.scheduleRerender();
@@ -15,6 +18,10 @@ app.registerInitializer({
   }
 });
 
-app.renderComponent('x-home', containerElement, null);
+nativeApplication.on(nativeApplication.launchEvent, (args) => {
+  app.renderComponent('x-home', container, null);
+  app.boot();
+  args.root = container.nativeView;
+});
 
-app.boot();
+nativeApplication.run();

@@ -4,7 +4,7 @@
   "description": "Nativescript renderer for the Glimmer VM",
   "main": "index.js",
   "scripts": {
-    "build": "ember build -e production",
+    "build": "ember build && cp dist/app.js app/ && cp dist/app.css app/",
     "start": "ember server",
     "test": "ember test"
   },
