@@ -1,5 +1,11 @@
-<Page>
-  <StackLayout>
-    <Label @text="Hello Word"></Label>
-  </StackLayout>
+<Page @class="page" as |page|>
+  <ActionBar @page={{page}} @class="action-bar">
+    <NavigationButton @icon="res://menu"></NavigationButton>
+    <Label @class="action-bar-title" @text="Home"></Label>
+  </ActionBar>
+
+  <GridLayout @class="page-content">
+    <Label @class="page-icon fa" @text="&#xf015;"></Label>
+    <Label @class="page-placeholder" @text="Hello World"></Label>
+  </GridLayout>
 </Page>

@@ -107,6 +107,11 @@ registerElement(
 );
 
 registerElement(
+  'native_grid_layout',
+  () => require('tns-core-modules/ui/layouts/grid-layout').GridLayout
+);
+
+registerElement(
   'FlexboxLayout',
   () => require('tns-core-modules/ui/layouts/flexbox-layout').FlexboxLayout
 );
@@ -121,4 +126,14 @@ registerElement(
       }
     }
   }
+);
+
+registerElement(
+  'native_action_bar',
+  () => require('tns-core-modules/ui/action-bar').ActionBar
+);
+
+registerElement(
+  'native_navigation_button',
+  () => require('tns-core-modules/ui/action-bar').NavigationButton
 );
