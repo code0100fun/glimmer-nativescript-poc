@@ -1,0 +1,37 @@
+@import "nativescript-theme-core/scss/dark";
+@import "nativescript-theme-core/scss/index";
+@import "nativescript-theme-core/scss/platforms/index.android";
+
+$page-icon-color: #b3b3b3;
+
+.fa {
+  font-family: "FontAwesome";
+}
+
+.page-content {
+
+  .page-placeholder {
+      color: $page-icon-color;
+      font-size: 30;
+      vertical-align: center;
+      horizontal-align: center;
+  }
+
+  .page-icon {
+      font-size: 72;
+      vertical-align: top;
+      horizontal-align: center;
+      color: $page-icon-color;
+      margin-top: 20%;
+  }
+}
+
+/* Action bar*/
+ActionBar .action-bar-title {
+   horizontal-align: center;
+}
+
+// Place any CSS rules you want to apply only on Android here
+ActionBar .fa {
+  padding: 40px;
+}

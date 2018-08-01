@@ -15,7 +15,12 @@ module.exports = function(defaults) {
       external(id) {
         return /tns-core-modules/.test(id);
       },
-    }
+    },
+    sassOptions: {
+      includePaths: [
+        'node_modules',
+      ]
+    },
   });
 
   return app.toTree();
