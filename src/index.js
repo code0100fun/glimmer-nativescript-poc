@@ -5,7 +5,7 @@ import nativeApplication from 'tns-core-modules/application';
 
 const app = new App();
 
-const container = document.createElement('Frame');
+const container = document.createElement('native_proxy_container');
 document.documentElement.appendChild(container);
 
 setPropertyDidChange(() => {
@@ -18,10 +18,15 @@ app.registerInitializer({
   }
 });
 
-nativeApplication.on(nativeApplication.launchEvent, (args) => {
-  app.renderComponent('x-home', container, null);
-  app.boot();
-  args.root = container.nativeView;
+let root;
+
+app.renderComponent('Application', container, null);
+
+app.boot().then(() => {
+  root = container.firstChild.nativeView;
+  nativeApplication.run();
 });
 
-nativeApplication.run();
+nativeApplication.on(nativeApplication.launchEvent, (args) => {
+  args.root = root;
+});

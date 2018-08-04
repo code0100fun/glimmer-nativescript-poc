@@ -82,6 +82,11 @@ registerElement(
 );
 
 registerElement(
+  'native_proxy_container',
+  () => require('tns-core-modules/ui/proxy-view-container').ProxyViewContainer,
+);
+
+registerElement(
   'Comment',
   () => require('tns-core-modules/ui/placeholder').Placeholder
 );
@@ -117,7 +122,7 @@ registerElement(
 );
 
 registerElement(
-  'Frame',
+  'native_frame',
   () => require('tns-core-modules/ui/frame').Frame,
   {
     insertChild(parentNode, childNode, atIndex) {

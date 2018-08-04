@@ -13,6 +13,7 @@ export default class App extends Application {
     let resolver = new Resolver(resolverConfiguration, moduleRegistry);
 
     super({
+      document: document,
       builder: new DOMBuilder({ element: document, nextSibling: null }),
       loader: new RuntimeCompilerLoader(resolver),
       renderer: new SyncRenderer(),

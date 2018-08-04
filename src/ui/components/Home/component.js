@@ -1,5 +1,5 @@
 import Component, { tracked } from "@glimmer/component";
 
-export default class XHome extends Component {
+export default class Home extends Component {
 
 }
