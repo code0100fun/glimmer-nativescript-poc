@@ -144,6 +144,11 @@ registerElement(
 );
 
 registerElement(
+  'native_scroll_view',
+  () => require('tns-core-modules/ui/scroll-view').ScrollView
+);
+
+registerElement(
   'native_rad_side_drawer',
   () => require('nativescript-ui-sidedrawer').RadSideDrawer
 );
