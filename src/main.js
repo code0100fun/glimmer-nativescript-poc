@@ -22,3 +22,9 @@ export default class App extends Application {
     });
   }
 }
+
+const didError = Application.prototype._didError;
+Application.prototype._didError = function _customDidError(err) {
+  console.trace(err);
+  return didError.apply(this, arguments);
+};
