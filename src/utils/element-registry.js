@@ -142,3 +142,18 @@ registerElement(
   'native_navigation_button',
   () => require('tns-core-modules/ui/action-bar').NavigationButton
 );
+
+registerElement(
+  'native_rad_side_drawer',
+  () => require('nativescript-ui-sidedrawer').RadSideDrawer
+);
+
+registerElement(
+  'native_drawer_content',
+  () =>  require('tns-core-modules/ui/layouts/stack-layout').StackLayout
+);
+
+registerElement(
+  'native_main_content',
+  () =>  require('tns-core-modules/ui/layouts/stack-layout').StackLayout
+);
