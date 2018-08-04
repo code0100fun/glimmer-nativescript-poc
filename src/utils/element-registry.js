@@ -150,15 +150,24 @@ registerElement(
 
 registerElement(
   'native_rad_side_drawer',
-  () => require('nativescript-ui-sidedrawer').RadSideDrawer
+  () => require('nativescript-ui-sidedrawer').RadSideDrawer,
+  {
+    insertChild(parentNode, childNode, atIndex) {
+      if (normalizeElementName(childNode.tagName) === 'native_drawer_content') {
+        parentNode.nativeView.drawerContent = childNode.nativeView;
+      } else if (normalizeElementName(childNode.tagName) === 'native_main_content') {
+        parentNode.nativeView.mainContent = childNode.nativeView;
+      }
+    }
+  }
 );
 
 registerElement(
   'native_drawer_content',
-  () =>  require('tns-core-modules/ui/layouts/stack-layout').StackLayout
+  () => require('tns-core-modules/ui/page').Page,
 );
 
 registerElement(
   'native_main_content',
-  () =>  require('tns-core-modules/ui/layouts/stack-layout').StackLayout
+  () => require('tns-core-modules/ui/page').Page,
 );

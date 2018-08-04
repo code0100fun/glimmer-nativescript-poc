@@ -1,3 +1,27 @@
-<Frame>
-  <Home></Home>
-</Frame>
+<RadSideDrawer @id="sideDrawer" @rows="0">
+
+  <DrawerContent>
+		<StackLayout @backgroundColor="gray">
+      <StackLayout @height="56" @style="vertical-align: center;">
+        <Label @text="Navigation Menu" @style="text-align: center;"/>
+      </StackLayout>
+      <StackLayout>
+        <Label @text="Primary" @padding="10" @backgroundColor="lightgray" />
+        <Label @text="Social" @padding="10" />
+        <Label @text="Promotions" @padding="10" />
+        <Label @text="Labels" @padding="10" @backgroundColor="lightgray" />
+        <Label @text="Important" @padding="10" />
+        <Label @text="Starred" @padding="10" />
+        <Label @text="Sent Mail" @padding="10" />
+        <Label @text="Drafts" @padding="10" />
+      </StackLayout>
+    </StackLayout>
+  </DrawerContent>
+
+  <MainContent>
+    <Frame>
+      <Home></Home>
+    </Frame>
+  </MainContent>
+
+</RadSideDrawer>

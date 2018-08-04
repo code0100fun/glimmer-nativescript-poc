@@ -4,9 +4,8 @@ import { ComponentManager, setPropertyDidChange } from '@glimmer/component';
 import nativeApplication from 'tns-core-modules/application';
 
 const app = new App();
-
-const container = document.createElement('native_proxy_container');
-document.documentElement.appendChild(container);
+const container = document.documentElement;
+let root;
 
 setPropertyDidChange(() => {
   app.scheduleRerender();
@@ -17,8 +16,6 @@ app.registerInitializer({
     registry.register(`component-manager:/${app.rootName}/component-managers/main`, ComponentManager);
   }
 });
-
-let root;
 
 app.renderComponent('Application', container, null);
 
