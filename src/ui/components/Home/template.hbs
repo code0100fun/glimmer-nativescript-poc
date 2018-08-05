@@ -1,13 +1,13 @@
-<Page @class="page" as |page|>
-  <ActionBar @page={{page}} @class="action-bar">
-    <NavigationButton @icon="res://menu" @tap={{action toggleMenu}}></NavigationButton>
-    <StackLayout @orientation="horizontal" @class="action-bar-logo">
-      <Image @class="action-bar-icon" @src="res://icon" />
-      <Label @class="action-bar-title" @text="nativescript-glimmer"></Label>
+<Page class="page" as |page|>
+  <ActionBar @page={{page}} class="action-bar">
+    <NavigationButton icon="res://menu" tap={{action toggleMenu}}></NavigationButton>
+    <StackLayout orientation="horizontal" class="action-bar-logo">
+      <Image class="action-bar-icon" src="res://icon" />
+      <Label class="action-bar-title" text="nativescript-glimmer"></Label>
     </StackLayout>
   </ActionBar>
 
-  <GridLayout @class="page-content">
-    <Label @class="page-placeholder" @text="Hello World"></Label>
+  <GridLayout class="page-content">
+    <Label class="page-placeholder" text="Hello World"></Label>
   </GridLayout>
 </Page>
