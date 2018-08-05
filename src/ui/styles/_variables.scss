@@ -1,0 +1,47 @@
+@import "nativescript-theme-core/scss/variables";
+
+// Theme colors
+// $base: #1E293B !default;
+
+// Colors
+$background-dark: #1E293B !default;
+$background-light: #FFFFFF !default;
+$background: $background-dark;
+$primary: #fff;
+$secondary: darken($primary, 30%);
+$disabled: darken($primary, 50%);
+$accent: $primary;
+
+// Custom colors
+$page-text-color: #8C9AB1;
+$page-text-header-color: #F5835F;
+$page-text-emphisis-color: #fff;
+$page-icon-color: #fff;
+$line-color: rgba($primary, 0.1);
+
+// Status bar
+$status-bar-offset: 80px;
+
+// ActionBar
+$ab-background: $background;
+$ab-color: $primary;
+
+// Headings
+$headings-color: $primary;
+
+// SideDrawer
+$item-color: $page-text-color;
+$item-active-background: lighten($background, 20%);
+$item-active-color: $accent;
+$item-active-icon-color: #fff;
+$sidedrawer-image-background: lighten($background, 10%);
+$sidedrawer-header-background: darken($background, 5%);
+$sidedrawer-header-brand: #fff;
+$sidedrawer-background: $background;
+
+$sidedrawer-header-image-size: 60;
+$sidedrawer-header-image-offset-top: 20;
+$sidedrawer-header-image-offset-bottom: 5;
+$sidedrawer-list-item-offset-left: 15;
+$sidedrawer-list-icon-offset: 10;
+$sidedrawer-list-icon-size: 20;

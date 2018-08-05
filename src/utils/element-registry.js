@@ -171,3 +171,6 @@ registerElement(
   'native_main_content',
   () => require('tns-core-modules/ui/page').Page,
 );
+
+registerElement('native_image', () => require('tns-core-modules/ui/image').Image)
+registerElement('img', () => require('tns-core-modules/ui/image').Image)

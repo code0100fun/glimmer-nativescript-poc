@@ -1,17 +1,22 @@
-@import "nativescript-theme-core/scss/dark";
+@import "variables";
 @import "nativescript-theme-core/scss/index";
 @import "nativescript-theme-core/scss/platforms/index.android";
+@import "sidedrawer";
 
-$page-icon-color: #b3b3b3;
+* {
+  font-family: "Roboto";
+  color: $page-text-color;
+}
 
 .fa {
   font-family: "FontAwesome";
+  color: $page-icon-color;
 }
 
 .page-content {
 
   .page-placeholder {
-      color: $page-icon-color;
+      color: $page-text-color;
       font-size: 30;
       vertical-align: center;
       horizontal-align: center;
@@ -21,17 +26,32 @@ $page-icon-color: #b3b3b3;
       font-size: 72;
       vertical-align: top;
       horizontal-align: center;
-      color: $page-icon-color;
+      color: $page-text-color;
       margin-top: 20%;
   }
 }
 
-/* Action bar*/
-ActionBar .action-bar-title {
-   horizontal-align: center;
+ActionBar {
+  margin-top: $status-bar-offset;
+  border-width: 1;
+  border-color: transparent;
+  border-bottom-color: $line-color;
 }
 
-// Place any CSS rules you want to apply only on Android here
+ActionBar .action-bar-logo {
+  horizontal-align: center;
+}
+
+ActionBar .action-bar-title {
+  font-style: italic;
+  color: $page-text-emphisis-color;
+}
+
+ActionBar .action-bar-icon {
+  width: 100px;
+  margin-right: 20px;
+}
+
 ActionBar .fa {
   padding: 40px;
 }
