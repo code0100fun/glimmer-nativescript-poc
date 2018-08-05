@@ -1,6 +1,6 @@
 <Page @class="page" as |page|>
   <ActionBar @page={{page}} @class="action-bar">
-    <NavigationButton @icon="res://menu"></NavigationButton>
+    <NavigationButton @icon="res://menu" @tap={{action toggleMenu}}></NavigationButton>
     <Label @class="action-bar-title" @text="Home"></Label>
   </ActionBar>
 
