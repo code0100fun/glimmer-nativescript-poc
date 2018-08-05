@@ -39,6 +39,7 @@
     "lazy": "1.0.11",
     "regenerator-runtime": "^0.12.0",
     "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-insert": "^0.1.1",
     "rollup-plugin-node-resolve": "^3.0.0"
   }
 }
