@@ -65,7 +65,11 @@ export default class ViewNode {
   }
 
   setAttribute(key, value) {
-    this.nativeView[key] = value;
+    if (typeof(value) === 'function') {
+      this.addEventListener(key, value);
+    } else {
+      this.nativeView[key] = value;
+    }
   }
 
   setAttributeNS(key, value) {
