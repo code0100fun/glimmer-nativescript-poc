@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime';
 import App, { document } from './main';
 import { ComponentManager, setPropertyDidChange } from '@glimmer/component';
 import nativeApplication from 'tns-core-modules/application';
+import Router from './routes/router';
 
 const app = new App();
 const container = document.documentElement;
@@ -21,7 +22,7 @@ app.renderComponent('Application', container, null);
 
 app.boot().then(() => {
   root = container.firstChild.nativeView;
-  nativeApplication.run();
+  nativeApplication.run({ backstackVisible: false });
 });
 
 nativeApplication.on(nativeApplication.launchEvent, (args) => {

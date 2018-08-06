@@ -10,14 +10,18 @@
 
       <ScrollView row="1">
         <StackLayout class="sidedrawer-content">
-          <GridLayout columns="auto, *" class="sidedrawer-list-item selected">
+          <GridLayout columns="auto, *"
+            class="sidedrawer-list-item {{if (eq router.currentRouteName 'home') 'selected'}}"
+            tap={{action transitionTo '/home'}}>
             <Label row="0" col="0" text="&#xf015;" class="fa" />
             <Label row="0" col="1" text="Home" class="p-r-10" />
           </GridLayout>
 
-          <GridLayout columns="auto, *" class="sidedrawer-list-item">
+          <GridLayout columns="auto, *"
+            class="sidedrawer-list-item {{if (eq router.currentRouteName 'router') 'selected'}}"
+            tap={{action transitionTo '/router'}}>
             <Label row="0" col="0" text="&#xf1ea;" class="fa" />
-            <Label row="0" col="1" text="Browse" class="p-r-10" />
+            <Label row="0" col="1" text="Router" class="p-r-10" />
           </GridLayout>
 
           <GridLayout columns="auto, *" class="sidedrawer-list-item">
@@ -43,7 +47,20 @@
 
   <MainContent>
     <Frame>
-      <Home></Home>
+      <Page class="page" as |page|>
+        <ActionBar @page={{page}} class="action-bar">
+          <NavigationButton icon="res://menu" tap={{action toggleMenu}}></NavigationButton>
+          <StackLayout orientation="horizontal" class="action-bar-logo">
+            <Image class="action-bar-icon" src="res://icon" />
+            <Label class="action-bar-title" text="nativescript-glimmer"></Label>
+          </StackLayout>
+        </ActionBar>
+
+        <Frame>
+          <Page class="page" actionBarHidden="true" backstackVisible="false"></Page>
+        </Frame>
+
+      </Page>
     </Frame>
   </MainContent>
 

@@ -10,10 +10,16 @@ const moduleConfiguration = {
     renderer: { definitiveCollection: 'main' },
     template: { definitiveCollection: 'components' },
     service: { definitiveCollection: 'services' },
+    route: { definitiveCollection: 'routes' },
   },
   collections: {
     main: {
       types: ['application', 'renderer']
+    },
+    routes: {
+      types: ['route'],
+      defaultType: 'route',
+      privateCollections: ['utils']
     },
     components: {
       group: 'ui',
