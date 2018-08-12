@@ -5,7 +5,7 @@ import { showDrawer, closeDrawer } from '../../../utils/side-drawer';
 
 @injectServices('router')
 export default class Application extends Component {
-  router: Router,
+  router: Router;
 
   toggleMenu() {
     showDrawer();

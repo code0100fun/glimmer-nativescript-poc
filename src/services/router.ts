@@ -23,39 +23,42 @@ export default class Router extends Service {
     return this.appRoutes.urlFor(routeName);
   }
 
-  replaceWith(routeNameOrUrl, options) {
+  replaceWith(routeNameOrUrl, options={}) {
     this.transitionTo(routeNameOrUrl, { backstackVisible: false, ...options});
   }
 
-  transitionTo(routeNameOrUrl, options) {
+  transitionTo(routeNameOrUrl, options={}) {
     return this._buildTransitionTo(routeNameOrUrl, options).then((navigationEntry) => {
-      return this._navigate(navigationEntry);
+      if (navigationEntry) {
+        return this._navigate(navigationEntry);
+      }
     });
   }
 
   // Private
 
-  _buildTransitionTo(routeNameOrUrl, options) {
+  async _buildTransitionTo(routeNameOrUrl, options={}) {
     const routes = this.appRoutes.recognize(routeNameOrUrl);
     if (routes && routes.length > 0) {
       const route = routes[0].handler;
-      const app = this._application;
-      const container = app.document.createElement('native_proxy_container');
-      app.renderComponent(route.options.component, container, null);
-      return app._rerender().then(() => {
+      if (route.options.path !== this.currentURL) {
+        const app = this._application;
+        const container = app.document.createElement('native_proxy_container');
+        app.renderComponent(route.options.component, container, null);
+        await app._rerender();
         const meta = { route };
         const page = container.firstChild;
         page.nativeView.meta = meta;
         this._currentRouteMeta = meta;
         container.removeChild(page);
         return this._buildNavigationEntry(page.nativeView, options);
-      });
+      }
     } else {
-      return Promose.reject('Route not found');
+      return Promise.reject('Route not found');
     }
   }
 
-  _buildNavigationEntry(page, options) {
+  _buildNavigationEntry(page, options={}) {
     return {
       create: () => {
         return page;
