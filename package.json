@@ -21,6 +21,7 @@
     }
   },
   "dependencies": {
+    "nativescript-ripple": "^2.1.0",
     "nativescript-theme-core": "~1.0.4",
     "nativescript-ui-sidedrawer": "~4.1.0",
     "tns-android": "4.1.3",

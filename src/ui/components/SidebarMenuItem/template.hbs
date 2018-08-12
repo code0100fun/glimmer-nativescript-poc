@@ -1,0 +1,7 @@
+<Ripple tap={{action transitionTo @routeURL}}>
+  <GridLayout columns="auto, *"
+    class="sidedrawer-list-item {{if (eq router.currentRouteName @routeName) 'selected'}}">
+    <Label row="0" col="0" text={{@icon}} class="fa" />
+    <Label row="0" col="1" text={{@text}} class="p-r-10" />
+  </GridLayout>
+</Ripple>

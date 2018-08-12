@@ -1,19 +1,14 @@
 import Component, { tracked } from "@glimmer/component";
 import injectServices from '../../../utils/inject-services';
 import Router from '../../../services/router';
-import { showDrawer, closeDrawer } from '../../../utils/side-drawer';
+import { showDrawer } from '../../../utils/side-drawer';
 
 @injectServices('router')
 export default class Application extends Component {
   router: Router;
 
-  toggleMenu() {
+  showDrawer() {
     showDrawer();
-  }
-
-  transitionTo(url) {
-    closeDrawer();
-    this.router.transitionTo(url);
   }
 
   didInsertElement() {

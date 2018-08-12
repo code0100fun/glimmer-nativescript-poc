@@ -4456,6 +4456,10 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+nativescript-ripple@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/nativescript-ripple/-/nativescript-ripple-2.1.0.tgz#e43e844d0d6d4eaacf895cf6315b6775d2090235"
+
 nativescript-theme-core@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/nativescript-theme-core/-/nativescript-theme-core-1.0.4.tgz#cf2880c7fbf2fe5f43e2235d309750790803efe1"
