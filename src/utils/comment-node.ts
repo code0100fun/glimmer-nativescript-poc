@@ -1,10 +1,18 @@
-import ElementNode from './element-node';
+import ElementBaseNode from './element-base-node';
+import { Simple } from '@glimmer/interfaces';
 
-export default class CommentNode extends ElementNode {
-  constructor(text) {
-    super('comment');
+export default class CommentNode extends ElementBaseNode implements Simple.Comment {
 
-    this.nodeType = 8;
-    this.text = text;
+  private _text: string | null = null;
+
+  nodeType: Simple.NodeType.Comment;
+
+  constructor(
+    ownerDocument: Simple.Document,
+    text: string) {
+
+    super(ownerDocument, '#comment');
+
+    this._text = text;
   }
 }

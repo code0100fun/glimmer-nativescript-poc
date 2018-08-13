@@ -1,10 +1,18 @@
-import ViewNode from './view-node'
+import Node from './node'
+import { Simple } from '@glimmer/interfaces';
 
-export default class TextNode extends ViewNode {
-  constructor(text) {
-    super();
+export default class TextNode extends Node implements Simple.Text {
 
-    this.nodeType = 3;
+  public text: string | null = null;
+
+  nodeType: Simple.NodeType.Text;
+
+  constructor(
+    ownerDocument: Simple.Document,
+    text: string) {
+
+    super(ownerDocument, null);
+
     this.text = text;
 
     this._meta = {
@@ -12,8 +20,9 @@ export default class TextNode extends ViewNode {
     };
   }
 
-  setText(text) {
+  setText(text: string) {
     this.text = text;
-    this.parentNode.setText(text);
+    // TODO: fix text nodes
+    // this.parentNode.setText(text);
   }
 }

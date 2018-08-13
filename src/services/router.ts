@@ -1,7 +1,9 @@
 import Service from './-utils/service';
 import { tracked } from '@glimmer/component';
 import { getOwner } from '@glimmer/di';
+import { Simple } from '@glimmer/interfaces';
 import { topmost } from '../utils/frame';
+import ElementNode from '../utils/element-node';
 
 export default class Router extends Service {
 
@@ -42,13 +44,11 @@ export default class Router extends Service {
     if (routes && routes.length > 0) {
       const route = routes[0].handler;
       if (route.options.path !== this.currentURL) {
-        const app = this._application;
-        const container = app.document.createElement('native_proxy_container');
-        app.renderComponent(route.options.component, container, null);
-        await app._rerender();
+        const container = this._document.createElement('native_proxy_container');
+        this._renderComponent(route.options.component, container);
+        await this._rerender();
         const meta = { route };
-        const page = container.firstChild;
-        page.nativeView.meta = meta;
+        const page = container.firstChild as ElementNode;
         this._currentRouteMeta = meta;
         container.removeChild(page);
         return this._buildNavigationEntry(page.nativeView, options);
@@ -71,6 +71,21 @@ export default class Router extends Service {
       },
       ...options,
     };
+  }
+
+  protected get _document() {
+    // @ts-ignore
+    return this._application.document as Simple.Document;
+  }
+
+  protected _renderComponent(component: string, container: Simple.Element) {
+    // @ts-ignore
+    return this._application.renderComponent(component, container, null);
+  }
+
+  protected async _rerender() {
+    // @ts-ignore
+    await this._application._rerender();
   }
 
   _navigate(navigationEntry) {

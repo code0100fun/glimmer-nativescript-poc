@@ -17,6 +17,8 @@ export default class Router {
     return new this(options);
   }
 
+  protected _routeRecognizer: RouteRecognizer;
+
   constructor(options) {
     Object.assign(this, options);
     this._routeRecognizer = new RouteRecognizer();
@@ -31,7 +33,7 @@ export default class Router {
   get routes() { return _routes; }
 
   urlFor(routeName) {
-    this.routes.filterBy('name', routeName)[0].options.path;
+    this.routes.filter((route) => route.name === routeName)[0].options.path;
   }
 
   recognize(routeNameOrUrl) {

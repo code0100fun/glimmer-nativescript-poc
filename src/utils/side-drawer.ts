@@ -1,11 +1,12 @@
-import * as app from "application";
+import { getRootView } from 'tns-core-modules/application';
+import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 
 export function showDrawer() {
-  let sideDrawer = app.getRootView();
+  let sideDrawer = getRootView() as RadSideDrawer;
   sideDrawer.showDrawer();
 }
 
 export function closeDrawer() {
-  let sideDrawer = app.getRootView();
+  let sideDrawer = getRootView() as RadSideDrawer;
   sideDrawer.closeDrawer();
 }

@@ -1,8 +1,20 @@
-const elementMap = new Map();
+import { View } from 'tns-core-modules/ui/core/view';
 
-const defaultViewMeta = {
-  skipAddToDom: false,
-};
+const elementMap = new Map<string, { resolver: ViewResolver, meta?: ViewClassMeta }>();
+
+export interface ViewClass {
+  new (): View;
+}
+
+export type ViewResolver = () => ViewClass;
+
+export interface ViewClassMeta {
+  skipAddToDom?: boolean;
+  insertChild?: (parent: any, child: any, next?: any) => void;
+  removeChild?: (parent: any, child: any) => void;
+}
+
+const defaultViewMeta: ViewClassMeta = { skipAddToDom: false };
 
 export function normalizeElementName(elementName) {
   return elementName && elementName.toLowerCase();
@@ -20,7 +32,11 @@ function setElement(elementName, entry) {
   return elementMap.set(normalizeElementName(elementName), entry);
 }
 
-export function registerElement(elementName, resolver, meta) {
+export function registerElement(
+  elementName: string,
+  resolver: ViewResolver,
+  meta?: ViewClassMeta) {
+
   meta = Object.assign({}, defaultViewMeta, meta);
 
   if (hasElement(elementName)) {
@@ -74,6 +90,14 @@ registerElement(
 );
 
 registerElement(
+  '#document',
+  () => require('tns-core-modules/ui/proxy-view-container').ProxyViewContainer,
+  {
+    skipAddToDom: true
+  }
+);
+
+registerElement(
   'Document',
   () => require('tns-core-modules/ui/proxy-view-container').ProxyViewContainer,
   {
@@ -87,7 +111,7 @@ registerElement(
 );
 
 registerElement(
-  'Comment',
+  '#comment',
   () => require('tns-core-modules/ui/placeholder').Placeholder
 );
 

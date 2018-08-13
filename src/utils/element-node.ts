@@ -1,41 +1,6 @@
-import { getViewClass } from './element-registry';
-import ViewNode from './view-node';
+import ElementBaseNode from './element-base-node';
+import { Simple } from '@glimmer/interfaces';
 
-export const GLIMMER_ELEMENT_REF = '__glimmer_element_ref__';
-
-export default class ElementNode extends ViewNode {
-  constructor(tagName) {
-    super();
-
-    this.nodeType = 1;
-    this.tagName = tagName;
-
-    const viewClass = getViewClass(tagName);
-    this._nativeView = new viewClass();
-    this._nativeView[GLIMMER_ELEMENT_REF] = this;
-  }
-
-  appendChild(childNode) {
-    super.appendChild(childNode);
-
-    if (childNode.nodeType === 3) {
-      this.setText(childNode.text);
-    }
-  }
-
-  insertBefore(childNode, referenceNode) {
-    super.insertBefore(childNode, referenceNode);
-
-    if (childNode.nodeType === 3) {
-      this.setText(childNode.text);
-    }
-  }
-
-  removeChild(childNode) {
-    super.removeChild(childNode);
-
-    if (childNode.nodeType === 3) {
-      this.setText('');
-    }
-  }
+export default class ElementNode extends ElementBaseNode implements Simple.Element {
+  nodeType: Simple.NodeType.Element;
 }
