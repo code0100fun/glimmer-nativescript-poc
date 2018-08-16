@@ -8,7 +8,6 @@ const insert = require('rollup-plugin-insert');
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
     rollup: {
-      external: ['tns-core-modules'],
       plugins: [
         resolve({ jsnext: true, module: true, main: true }),
         commonjs(),
@@ -18,6 +17,13 @@ module.exports = function(defaults) {
       ],
       external(id) {
         return /tns-core-modules/.test(id);
+      },
+      globals: {
+        'tns-core-modules/application': 'tnsApplication',
+        'tns-core-modules/ui/frame': 'tnsFrame',
+        'tns-core-modules/ui/layouts/layout-base': 'tnsLayoutBase',
+        'tns-core-modules/ui/content-view': 'tnsContentView',
+        'tns-core-modules/ui/core/view': 'tnsView',
       },
     },
     sassOptions: {
