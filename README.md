@@ -2,6 +2,8 @@
 
 A simple proof-of-concept app to demonstrate Glimmer rendering to NativeScript views.
 
+![Android demo. Navigating app menu.](https://media.giphy.com/media/dujOrODBet478JX7w5/giphy.gif)
+
 ## Setup
 
 The NativeScript installation requires quite a few packages and tools to be installed and configured in specific ways. It would be too complicated to describe the details for even one OS and target platform (Android, iOS) so instead I'll just point to the [NativeScript docs](https://docs.nativescript.org/start/introduction) that do a very good job describing the specifics.
